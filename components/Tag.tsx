@@ -1,14 +1,24 @@
 import React from 'react'
 
-interface TagProps {
-  name: string
-  key: string
+enum Color {
+  amber = "bg-amber-400",
+  blue = "bg-blue-400"
 }
 
-const Tag = ({ name }: TagProps) => (
-  <a className="p-1 mr-1 text-xs text-white bg-gray-600 rounded hover:bg-gray-500">
-    {name}
-  </a>
-)
+interface TagProps {
+  name: string
+  color: Color,
+}
+
+const defaultColor = Color.blue
+
+const Tag = ({ name, color=defaultColor}) => {
+  return (
+    <a className={`p-1 mr-1 text-xs text-white rounded ${color} hover:bg-gray-500`}>
+      {name}
+    </a>
+  )
+}
+
 
 export default Tag
